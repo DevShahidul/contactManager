@@ -12,7 +12,7 @@ class Contact extends Component {
     };
 
     removeContact = () => {
-       // this.props.onDeleteHandler
+       this.props.onDeleteHandler();
     }
     render(){
         const { name, email, phone, address } = this.props.contact;
