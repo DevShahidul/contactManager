@@ -26,7 +26,12 @@ class Contacts extends Component {
                 address: 'Bhatara, Bhatara, Sarishabari, Jamalpur, Bangladesh'
             }
         ]
+    };
+
+    deleteContact = () => {
+        console.log('I am clicked')
     }
+
     render(){
         const { contacts } = this.state;
         return(
@@ -34,7 +39,7 @@ class Contacts extends Component {
                 <h1><span className="text-success">Contacts</span> list</h1>
                 {
                 contacts.map(
-                        contact => <Contact key={contact.id} contact={contact} />
+                        contact => <Contact key={contact.id} contact={contact} onDeleteHandler={this.deleteContact}/>
                     )
                 }
             </div>
