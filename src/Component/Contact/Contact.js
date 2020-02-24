@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Consumer } from '../../Context';
 
 class Contact extends Component {
@@ -18,8 +19,11 @@ class Contact extends Component {
             payload: id
        })
     }
+
     render(){
         const { id, name, email, phone, address } = this.props.contact;
+        const { street, suite, city, zipcode } = address;
+
         return(
             <Consumer>
                 {value => {
@@ -30,6 +34,7 @@ class Contact extends Component {
                                 {name}
                                 <span style={{cursor: 'pointer', marginLeft: '5px'}} onClick={this.showOnClick} ><i className="fas fa-sort-down"></i></span>
                                 <span style={{cursor: 'pointer', float: 'right', color: 'red'}} onClick={this.onDeleteContact.bind(this, dispatch, id)} ><i className="fas fa-times"></i></span>
+                                <Link to={`/contact/edit/${id}`} style={{cursor: 'pointer', float: 'right', marginRight: '10px', fontSize: '1.5rem', lineHeight: '38px', color: 'black'}} ><i className="fas fa-pencil-alt"></i></Link>
                             </h2>
                             {this.state.showInfo ? (<ul className="list-group">
                                 <li className="list-group-item">
@@ -39,8 +44,9 @@ class Contact extends Component {
                                     Phone: {phone}
                                 </li>
                                 <li className="list-group-item">
-                                    Address: {address}
+                                    Address: {street + ', ' + suite + ', ' + city + ', Zip: ' +zipcode }
                                 </li>
+                                
                             </ul>) : null}
                         </div>
                     )
