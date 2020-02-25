@@ -14,12 +14,12 @@ class Contact extends Component {
         })
     };
 
-    onDeleteContact = (dispatch, id) => {
-        axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(
-        res => dispatch({
+    onDeleteContact = async (dispatch, id) => {
+        await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+        dispatch({
             type: 'DELETE_CONTACT',
             payload: id
-       }))
+        })
     }
 
     render(){

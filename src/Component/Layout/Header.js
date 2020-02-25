@@ -6,7 +6,7 @@ class Header extends Component {
         return(
             <header className="navbar navbar-dark bg-success navbar-expand-lg">
                 <div className="container">
-                    <a href="/" className="navbar-brand">Contact Manager</a>
+                    <a href="/contactManager" className="navbar-brand">Contact Manager</a>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <Link to="/" className="nav-link">Home</Link>
