@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Consumer } from '../../Context';
 
@@ -14,10 +15,11 @@ class Contact extends Component {
     };
 
     onDeleteContact = (dispatch, id) => {
-       dispatch({
+        axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(
+        res => dispatch({
             type: 'DELETE_CONTACT',
             payload: id
-       })
+       }))
     }
 
     render(){

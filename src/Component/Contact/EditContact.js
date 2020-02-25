@@ -37,7 +37,7 @@ class EditContact extends Component {
 
     onSubmit = (dispatch, e) => {
         e.preventDefault();
-        const { name, email, phone } = this.state;
+        const {name, email, phone, address } = this.state;
 
         // Check error
         if(name === ''){
@@ -60,6 +60,22 @@ class EditContact extends Component {
             });
             return;
         }
+
+        const updateContact = {
+            name, 
+            email, 
+            phone,
+            address
+        }
+
+        const { id } = this.props.match.params;
+
+        axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, updateContact).then(
+            res => dispatch({
+                type: 'UPDATE_CONTACT',
+                payload: res.data
+            })
+        )
 
         this.setState({
             name: '',
