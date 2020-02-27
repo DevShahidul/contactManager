@@ -24,7 +24,6 @@ class Contact extends Component {
 
     render(){
         const { id, name, email, phone, address } = this.props.contact;
-        const { street, suite, city, zipcode } = address;
 
         return(
             <Consumer>
@@ -46,7 +45,7 @@ class Contact extends Component {
                                     Phone: {phone}
                                 </li>
                                 <li className="list-group-item">
-                                    Address: {street + ', ' + suite + ', ' + city + ', Zip: ' +zipcode }
+                                    Address: {JSON.stringify(address)}
                                 </li>
                                 
                             </ul>) : null}

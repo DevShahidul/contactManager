@@ -36,8 +36,6 @@ class Provider extends Component {
         this.setState({
             contacts: res.data
         })
-
-        console.log(res.data)
     }
 
     state = {
